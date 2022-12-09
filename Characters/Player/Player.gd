@@ -2,19 +2,27 @@ extends Character
 class_name Player
 
 onready var sword = get_node("Sword")
-
+	
 func _process(_delta: float) -> void:
-	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
-	
-	if mouse_direction.x > 0 and animated_sprite.flip_h:
+	if velocity.x > 0:
 		animated_sprite.flip_h = false
-	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
-		animated_sprite.flip_h = true
-	
-	if mouse_direction.x > 0:
 		sword.scale.x = 1
-	elif mouse_direction.x < 0:
+	if velocity.x < 0:
+		animated_sprite.flip_h = true
 		sword.scale.x = -1
+		
+	
+#	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+#
+#	if mouse_direction.x > 0 and animated_sprite.flip_h:
+#		animated_sprite.flip_h = false
+#	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
+#		animated_sprite.flip_h = true
+#
+#	if mouse_direction.x > 0:
+#		sword.scale.x = 1
+#	elif mouse_direction.x < 0:
+#		sword.scale.x = -1
 	
 
 func get_input() -> void:
