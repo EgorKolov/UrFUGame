@@ -62,8 +62,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=15]
-radius = 14.0
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 9.0
+height = 8.0
 
 [sub_resource type="Animation" id=12]
 length = 0.001
@@ -423,8 +424,8 @@ frames = SubResource( 11 )
 animation = "idle"
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 8, 0 )
-shape = SubResource( 15 )
+position = Vector2( 3, 7 )
+shape = SubResource( 18 )
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/RESET = SubResource( 12 )
