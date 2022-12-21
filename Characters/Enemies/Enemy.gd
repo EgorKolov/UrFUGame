@@ -3,9 +3,10 @@ class_name Enemy, "res://Art/Enemies/enemy1.png"
 
 var path: PoolVector2Array
 
-onready var navigation: Navigation2D = get_tree().current_scene.get_node("Navigation2D")
+onready var navigation: Navigation2D = get_parent().get_node("Rooms")
 onready var player: KinematicBody2D = get_tree().current_scene.get_node("Player")
 onready var path_timer: Timer = get_node("PathTimer")
+
 
 func chase() -> void:
 	if path:
@@ -16,11 +17,9 @@ func chase() -> void:
 			if not path:
 				return
 		mov_direction = vector_to_next_point
-		
+
 		if vector_to_next_point.x > 5 and animated_sprite.flip_h:
 			animated_sprite.flip_h = false
 		elif vector_to_next_point.x < -5 and not animated_sprite.flip_h:
 			animated_sprite.flip_h = true
 
-func _on_PathTimer_timeout() -> void:
-	path = navigation.get_simple_path(global_position, player.position)
