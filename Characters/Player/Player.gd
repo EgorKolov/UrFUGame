@@ -2,6 +2,8 @@ extends Character
 class_name Player
 
 onready var sword = get_node("Sword")
+onready var sword_animation: AnimationPlayer = get_node("Sword/SwordAnimation")
+onready var sword_hitbox: Area2D = get_node("Sword/SwordNode/Sprite/Hitbox")
 	
 func _process(_delta: float) -> void:
 	if velocity.x > 0:
@@ -35,3 +37,6 @@ func get_input() -> void:
 		mov_direction += Vector2.RIGHT
 	if Input.is_action_pressed("ui_up"):
 		mov_direction += Vector2.UP
+	
+	if Input.is_action_just_pressed("ui_attack") and not sword_animation.is_playing():
+		sword_animation.play("attack")
