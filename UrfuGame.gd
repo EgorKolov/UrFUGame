@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _init() -> void:
 	randomize()
 	var screen_size: Vector2 = OS.get_screen_size()

@@ -22,4 +22,5 @@ func chase() -> void:
 			animated_sprite.flip_h = false
 		elif vector_to_next_point.x < -5 and not animated_sprite.flip_h:
 			animated_sprite.flip_h = true
-
+			
+			

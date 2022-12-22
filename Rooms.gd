@@ -2,7 +2,7 @@ extends Navigation2D
 
 const start_rooms = [preload("res://Art/Rooms/NewRoom.tscn")]
 const fight_rooms = [preload("res://Art/Rooms/FightRoom.tscn"), preload("res://Art/Rooms/FightRoom2.tscn")]
-
+onready var camera: Camera2D = get_parent().get_node("Player").get_node("Camera")
 const tile_size = 8
 const floor_tile_index = 14
 const right_wall_tile_index = 12
@@ -12,7 +12,7 @@ export(int) var num_levels = 4
 
 onready var player: KinematicBody2D = get_parent().get_node("Player")
 
-#
+
 func _ready() -> void:
 	_create_rooms()
 
@@ -43,6 +43,10 @@ func _create_rooms() -> void:
 			#room.position = previous_room_door.global_position + Vector2.UP * room_tilemap.get_used_rect().size.y * tile_size + Vector2.UP * (1 + corridor_height) * tile_size + Vector2.LEFT  * room_tilemap.world_to_map(room.get_node("Entrance/Position2D").position).x * tile_size
 			previous_room_door.global_position += Vector2.LEFT * 2 + Vector2.DOWN * 2
 			room.position = previous_room.position + previous_room_door.position + Vector2.UP * (room.get_node("Entrance/Position2D").position.y + (corridor_height - 1) * tile_size) + Vector2.LEFT * room.get_node("Entrance/Position2D").position.x
+		var camera_limit = room.get_node("CameraLimit")
+		
+		
+		
 		add_child(room)
 		previous_room = room
 		
