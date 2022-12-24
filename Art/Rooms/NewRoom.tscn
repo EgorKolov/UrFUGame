@@ -580,7 +580,7 @@ position = Vector2( 720, 95 )
 z_index = 2
 
 [node name="PlayerSpawnPosition" type="Position2D" parent="."]
-position = Vector2( 335, 163 )
+position = Vector2( 176, 128 )
 
 [node name="EnemyPositions" type="Node2D" parent="."]
 

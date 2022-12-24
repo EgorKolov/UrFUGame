@@ -626,10 +626,9 @@ texture = ExtResource( 8 )
 hframes = 4
 
 [node name="SwordNode" type="Node2D" parent="Sword" index="2"]
-position = Vector2( 1, 6 )
 
 [node name="Sprite" type="Sprite" parent="Sword/SwordNode" index="0"]
-position = Vector2( 2, -18 )
+position = Vector2( 15, -6 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 6 )
 offset = Vector2( 10, 10 )

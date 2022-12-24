@@ -8,7 +8,7 @@ const tile_size = 8
 const floor_tile_index = 14
 const right_wall_tile_index = 12
 const left_wall_tile_index = 0
-export(int) var num_levels = 4
+export(int) var num_levels = 10
 
 
 onready var player: KinematicBody2D = get_parent().get_node("Player")
