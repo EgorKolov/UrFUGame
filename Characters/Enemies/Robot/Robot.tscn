@@ -5,12 +5,12 @@
 [ext_resource path="res://Characters/Enemies/Robot/Robot.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 5.0
-height = 12.0
-
-[sub_resource type="CapsuleShape2D" id=6]
 radius = 6.0
 height = 24.0
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 9.0
+height = 22.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "dead"
@@ -131,9 +131,10 @@ tracks/3/keys = {
 
 [node name="Robot" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+max_speed = 125
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 1, 3 )
+position = Vector2( 1, 0 )
 shape = SubResource( 3 )
 
 [node name="Hitbox" type="Area2D" parent="." index="3"]

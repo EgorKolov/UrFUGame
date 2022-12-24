@@ -1,25 +1,24 @@
 extends Node2D
 
 const enemy_scenes: Dictionary = {
-	"enemy" : preload("res://Characters/Enemies/Enemy.tscn")
+	"enemy" : preload("res://Characters/Enemies/Robot/Robot.tscn")
 }
 
 
 var num_enemies: int
-onready var tilemap: TileMap = get_node("Navigation2D/TileMap3")
+onready var tilemap: TileMap = get_node("TileMap3")
 onready var enemy_positions = get_node("EnemyPositions")
 onready var player_detector = get_node("PlayerDetector")
 onready var doors = get_node("Doors")
 onready var entrance = get_node("Entrance")
-onready var camera = get_parent().get_parent().get_node("Player").get_node("Camera")
-#onready var camera =  get_node("Camera2D")
+onready var camera =  get_parent().get_parent().get_node("Player/Camera")
 onready var camera_limits = get_node("CameraLimit")
 
 func _ready() -> void:
 	num_enemies = enemy_positions.get_child_count()
 
 
-func on_enemy_killed() -> void:
+func _on_enemy_killed() -> void:
 	num_enemies -= 1
 	if num_enemies == 0:
 		_open_doors()
@@ -47,6 +46,7 @@ func set_camera():
 	camera.limit_top = camera_limits.get_node("limit_left").global_position.y
 	camera.limit_left = camera_limits.get_node("limit_left").global_position.x
 	camera.limit_bottom = camera_limits.get_node("limit_right").global_position.y
+	camera.limit_bottom = camera_limits.get_node("limit_right").global_position.y
 	camera.limit_right = camera_limits.get_node("limit_right").global_position.x
 		
 
@@ -56,7 +56,6 @@ func _on_PlayerDetector_body_entered(body: KinematicBody2D) -> void:
 	if num_enemies > 0:
 		_close_entrance()
 		_spawn_enemies()
-		_open_doors()
 	else:
 		_open_doors()
 	

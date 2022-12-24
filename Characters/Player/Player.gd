@@ -6,12 +6,22 @@ onready var sword_animation: AnimationPlayer = get_node("Sword/SwordAnimation")
 onready var sword_hitbox: Area2D = get_node("Sword/SwordNode/Sprite/Hitbox")
 	
 func _process(_delta: float) -> void:
-	if velocity.x > 0:
+	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	if mouse_direction.x > 0 and animated_sprite.flip_h:
 		animated_sprite.flip_h = false
-		sword.scale.x = 1
-	if velocity.x < 0:
+	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
+
+	if mouse_direction.x > 0:
+		sword.scale.x = 1
+	elif mouse_direction.x < 0:
 		sword.scale.x = -1
+#	if velocity.x > 0:
+#		animated_sprite.flip_h = false
+#		sword.scale.x = 1
+#	if velocity.x < 0:
+#		animated_sprite.flip_h = true
+#		sword.scale.x = -1
 	
 
 func get_input() -> void:

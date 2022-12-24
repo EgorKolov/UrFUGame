@@ -1,7 +1,7 @@
 extends Node2D
 
 const enemy_scenes: Dictionary = {
-	"enemy" : preload("res://Characters/Enemies/Enemy.tscn")
+	"enemy" : preload("res://Characters/Enemies/Robot/Robot.tscn")
 }
 
 
@@ -31,7 +31,8 @@ func _open_doors() -> void:
 		
 		
 func _close_entrance() -> void:
-	pass
+	for entry_position in entrance.get_children():
+		tilemap.set_cellv(tilemap.world_to_map(entry_position.position), 0)
 	
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions.get_children():
