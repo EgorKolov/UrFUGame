@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 		sword.scale.x = 1
 	elif mouse_direction.x < 0:
 		sword.scale.x = -1
+		
 #	if velocity.x > 0:
 #		animated_sprite.flip_h = false
 #		sword.scale.x = 1

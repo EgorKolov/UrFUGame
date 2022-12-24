@@ -5,7 +5,7 @@
 [ext_resource path="res://Art/Main/mainhero.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=4]
 [ext_resource path="res://Characters/Player/FiniteStateMachine.gd" type="Script" id=5]
-[ext_resource path="res://Art/swords/0232ea1b46926cf.png" type="Texture" id=6]
+[ext_resource path="res://Art/swords/sword.png" type="Texture" id=6]
 [ext_resource path="res://Characters/Player/Sword.gd" type="Script" id=7]
 [ext_resource path="res://Art/swords/effects (new)/slash_effect_anim_spritesheet.png" type="Texture" id=8]
 [ext_resource path="res://Characters/Hitbox.gd" type="Script" id=9]
@@ -116,7 +116,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 1, 6 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Sword/SwordNode/Sprite:position")
@@ -141,6 +141,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sword:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -273,7 +285,31 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 15, -6 ) ]
+"values": [ Vector2( 2, -18 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sword/SwordNode:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 6 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sword:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -314,7 +350,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 15, -6 ), Vector2( 14, -7 ), Vector2( 13, -8 ), Vector2( 14.5881, -6.94658 ), Vector2( 17, -7 ), Vector2( 18, -9 ), Vector2( 19, -11 ), Vector2( 19, -12 ), Vector2( 17, -6 ), Vector2( 15, -6 ) ]
+"values": [ Vector2( 2, -18 ), Vector2( 1.47357, -18.6233 ), Vector2( -0.683701, -18.9613 ), Vector2( 0.252792, -17.4624 ), Vector2( 4.98448, -19.6254 ), Vector2( 4.92925, -20.0176 ), Vector2( 5.66941, -21.0917 ), Vector2( 5.79239, -22.0556 ), Vector2( 5.94028, -19.0188 ), Vector2( 2, -18 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sword/SwordNode:rotation_degrees")
@@ -478,7 +514,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.3, 0.55 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 15, -6 ), Vector2( 17.1967, -3.17252 ), Vector2( 17.1967, -3.17252 ), Vector2( 15, -6 ) ]
+"values": [ Vector2( 2, -18 ), Vector2( 5.5359, -17.5885 ), Vector2( 5.536, -17.588 ), Vector2( 2, -18 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("SwordNode/Sprite:rotation_degrees")
@@ -514,7 +550,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0.15, 0.2, 0.25, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 42, 2.125 ), Vector2( 40, 2.125 ), Vector2( 40, 2.125 ), Vector2( 60, 2.125 ) ]
+"values": [ Vector2( 42, 6 ), Vector2( 40, 6 ), Vector2( 40, 6 ), Vector2( 60, 6 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Node2D:visible")
@@ -541,9 +577,9 @@ tracks/6/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="CapsuleShape2D" id=19]
-radius = 20.639
-height = 248.935
+[sub_resource type="CapsuleShape2D" id=22]
+radius = 7.64956
+height = 40.948
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
@@ -590,22 +626,24 @@ texture = ExtResource( 8 )
 hframes = 4
 
 [node name="SwordNode" type="Node2D" parent="Sword" index="2"]
+position = Vector2( 1, 6 )
 
 [node name="Sprite" type="Sprite" parent="Sword/SwordNode" index="0"]
-modulate = Color( 0.419608, 0.686275, 0.623529, 1 )
-position = Vector2( 15, -6 )
-scale = Vector2( 0.151267, 0.110854 )
+position = Vector2( 2, -18 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 6 )
-flip_h = true
+offset = Vector2( 10, 10 )
 
 [node name="Hitbox" type="Area2D" parent="Sword/SwordNode/Sprite" index="0"]
+position = Vector2( -3.73799, 6.69192 )
 collision_layer = 0
 collision_mask = 4
 script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/SwordNode/Sprite/Hitbox" index="0"]
-position = Vector2( 9.04173, 8.99965 )
-rotation = 0.755728
-shape = SubResource( 19 )
+visible = false
+position = Vector2( 0.657822, -3.28704 )
+rotation = -0.0401426
+shape = SubResource( 22 )
 
 [node name="Light2D" parent="." index="6" instance=ExtResource( 10 )]
