@@ -60,6 +60,11 @@ config/name="UrFUGame"
 run/main_scene="res://UrfuGame.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneTransistior="*res://Autoloads/SceneTransistior.tscn"
+SavedData="*res://Autoloads/SavedData.gd"
+
 [display]
 
 window/size/width=480

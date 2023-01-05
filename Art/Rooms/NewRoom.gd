@@ -46,7 +46,6 @@ func set_camera():
 	camera.limit_top = camera_limits.get_node("limit_left").global_position.y
 	camera.limit_left = camera_limits.get_node("limit_left").global_position.x
 	camera.limit_bottom = camera_limits.get_node("limit_right").global_position.y
-	camera.limit_bottom = camera_limits.get_node("limit_right").global_position.y
 	camera.limit_right = camera_limits.get_node("limit_right").global_position.x
 		
 
