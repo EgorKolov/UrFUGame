@@ -183,6 +183,7 @@ tracks/1/keys = {
 }
 
 [node name="Robot" instance=ExtResource( 1 )]
+collision_mask = 5
 script = ExtResource( 3 )
 max_speed = 125
 
