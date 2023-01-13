@@ -1,14 +1,13 @@
 extends Character
 class_name Player
 
+onready var chem = get_parent().get_node("Chemconnect")
 onready var sword = get_node("Sword")
 onready var sword_animation: AnimationPlayer = get_node("Sword/SwordAnimation")
 onready var sword_hitbox: Area2D = get_node("Sword/SwordNode/Sprite/Hitbox")
-	
-	
+
 func _ready():
 	_restore_previous_state()
-		
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -36,6 +35,7 @@ func get_input() -> void:
 	
 	if Input.is_action_just_pressed("ui_attack") and not sword_animation.is_playing():
 		sword_animation.play("attack")
+		
 
 
 func _restore_previous_state() -> void:

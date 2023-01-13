@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="Puzzle" type="CanvasLayer"]
+
+[node name="Container" type="Container" parent="."]
+margin_right = 102.0
+margin_bottom = 100.0
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0

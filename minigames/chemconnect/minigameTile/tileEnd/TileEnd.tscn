@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://minigames/chemconnect/minigameTile/tileEnd/TileEnd.gd" type="Script" id=1]
+[ext_resource path="res://minigames/chemconnect/minigameTile/sprites/tile_overlay_end.png" type="Texture" id=2]
+[ext_resource path="res://minigames/chemconnect/minigameTile/sprites/tile_background_border.png" type="Texture" id=3]
+[ext_resource path="res://minigames/chemconnect/minigameTile/sprites/tile_overlay_end_active.png" type="Texture" id=4]
+[ext_resource path="res://minigames/chemconnect/minigameTile/sprites/tile_overlay_line_half.png" type="Texture" id=5]
+[ext_resource path="res://minigames/chemconnect/minigameTile/sprites/tile_background_standard.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="TileEnd" type="Control"]
+margin_top = 1.0
+margin_right = 100.0
+margin_bottom = 101.0
+script = ExtResource( 1 )
+
+[node name="Background" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+centered = false
+
+[node name="Gem" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+centered = false
+
+[node name="In_0_-1" type="Sprite" parent="."]
+position = Vector2( 50, 50 )
+texture = ExtResource( 5 )
+
+[node name="In_0_1" type="Sprite" parent="."]
+position = Vector2( 50, 50 )
+rotation = 3.14159
+texture = ExtResource( 5 )
+
+[node name="In_-1_0" type="Sprite" parent="."]
+position = Vector2( 50, 50 )
+rotation = 1.5708
+texture = ExtResource( 5 )
+
+[node name="In_1_0" type="Sprite" parent="."]
+position = Vector2( 50, 50 )
+rotation = -1.5708
+texture = ExtResource( 5 )

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://minigames/chemconnect/minigameTile/tileBorder/TileBorder.gd" type="Script" id=1]
+[ext_resource path="res://minigames/chemconnect/minigameTile/sprites/tile_background_border.png" type="Texture" id=2]
+[ext_resource path="res://UI/battle_status_plate/font/doulos-sil.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="TileBorder" type="Control"]
+margin_right = 100.0
+margin_bottom = 100.0
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="TileLabel" type="Label" parent="."]
+margin_right = 100.0
+margin_bottom = 100.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0.984314, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+uppercase = true

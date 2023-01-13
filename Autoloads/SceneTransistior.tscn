@@ -97,6 +97,7 @@ tracks/3/keys = {
 
 [node name="SceneTransistior" type="CanvasLayer"]
 layer = -1
+visible = false
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

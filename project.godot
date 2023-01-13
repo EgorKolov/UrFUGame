@@ -34,6 +34,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Hitbox.gd"
 }, {
+"base": "Control",
+"class": "MinigameChemconnect",
+"language": "GDScript",
+"path": "res://minigames/chemconnect/Chemconnect.gd"
+}, {
+"base": "Control",
+"class": "MinigameTile",
+"language": "GDScript",
+"path": "res://minigames/chemconnect/minigameTile/MinigameTile.gd"
+}, {
 "base": "Character",
 "class": "Player",
 "language": "GDScript",
@@ -48,6 +58,26 @@ _global_script_classes=[ {
 "class": "Sword",
 "language": "GDScript",
 "path": "res://Characters/Player/Sword.gd"
+}, {
+"base": "Control",
+"class": "TileBorder",
+"language": "GDScript",
+"path": "res://minigames/chemconnect/minigameTile/tileBorder/TileBorder.gd"
+}, {
+"base": "Reference",
+"class": "TileEnd",
+"language": "GDScript",
+"path": "res://minigames/chemconnect/minigameTile/tileEnd/TileEnd.gd"
+}, {
+"base": "Control",
+"class": "TileRedirect",
+"language": "GDScript",
+"path": "res://minigames/chemconnect/minigameTile/tileRedirect/TileRedirect.gd"
+}, {
+"base": "Control",
+"class": "TileStandard",
+"language": "GDScript",
+"path": "res://minigames/chemconnect/minigameTile/tileStandard/TileStandard.gd"
 } ]
 _global_script_class_icons={
 "Character": "res://Art/Main/mainhero.png",
@@ -55,9 +85,15 @@ _global_script_class_icons={
 "FiniteStateMachine": "",
 "GitAPI": "",
 "Hitbox": "",
+"MinigameChemconnect": "",
+"MinigameTile": "",
 "Player": "",
 "Rooms": "",
-"Sword": ""
+"Sword": "",
+"TileBorder": "",
+"TileEnd": "",
+"TileRedirect": "",
+"TileStandard": ""
 }
 
 [application]

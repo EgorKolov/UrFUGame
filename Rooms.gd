@@ -44,14 +44,29 @@ var dungeons = [
 				Walls.new(1, 0, 0),
 				16)
 	]
-
+var count_minigames = 1
 
 func _ready() -> void:
-	var dungeon_number = SavedData.get_next_level(len(dungeons))
-	var dungeon = dungeons[dungeon_number]
-	_create_rooms(dungeon_number, dungeon)
+	var dungeon_number = SavedData.get_next_level(len(dungeons) + count_minigames)
+	if dungeon_number == 2:
+		_create_minigame()
+	else:
+		var dungeon = dungeons[dungeon_number]
+		_create_rooms(dungeon_number, dungeon)
 
-
+func _create_minigame():
+	var minigame = get_parent().get_node("Chemconnect")
+	var camera: Camera2D = player.get_node("Camera")
+	var health_bar = get_parent().get_node("HealthBar")
+	var vision = get_parent().get_node("CanvasModulate")
+	camera.zoom = Vector2(4, 4)
+	player.position = minigame.get_node("PlayerSpawnPosition").position
+	minigame.init(10, 10)
+	player.hide()
+	health_bar.hide()
+	vision.hide()
+	
+	
 func _create_rooms(dungeon_number, dungeon) -> void:
 	var previous_room: Node2D
 	for i in num_levels:

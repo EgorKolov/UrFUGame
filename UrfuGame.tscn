@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Rooms.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://Art/Enemies/pngegg.png" type="Texture" id=4]
 [ext_resource path="res://Characters/Player/HealthBar.gd" type="Script" id=5]
 [ext_resource path="res://Characters/Player/HealthBar.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Characters/Enemies/ShootRobot/ShootRobot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Puzzle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://minigames/chemconnect/Chemconnect.tscn" type="PackedScene" id=8]
 
 [node name="UrfuGame" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -38,8 +39,8 @@ color = Color( 0.0470588, 0.0313726, 0.0392157, 1 )
 position = Vector2( 38, 136 )
 z_index = 1
 
-[node name="ShootRobot" parent="." instance=ExtResource( 7 )]
-position = Vector2( 249, 118 )
-collision_mask = 5
+[node name="Puzzle" parent="." instance=ExtResource( 7 )]
+
+[node name="Chemconnect" parent="." instance=ExtResource( 8 )]
 
 [connection signal="hp_changed" from="Player" to="HealthBar" method="_on_Player_hp_changed"]
