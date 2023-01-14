@@ -29,6 +29,8 @@ func _process(_delta):
 					i.end()
 			emit_signal("minigame_end")
 			grid_locked = true
+			yield(get_tree().create_timer(1.0), "timeout")
+			get_tree().change_scene("res://UrfuGame.tscn")
 		pass
 	
 	for t in tile_grid:

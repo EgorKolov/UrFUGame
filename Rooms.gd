@@ -31,15 +31,15 @@ class Walls:
 
 		
 var dungeons = [
-	Dungeon.new([preload("res://Art/Rooms/NewRoom.tscn")],
-				[preload("res://Art/Rooms/FightRoom2.tscn"), preload("res://Art/Rooms/FightRoom.tscn")],
-				[preload("res://Art/Rooms/EndRoom.tscn")],
+	Dungeon.new([preload("res://Rooms/Dungeon/NewRoom.tscn")],
+				[preload("res://Rooms/Dungeon/FightRoom2.tscn"), preload("res://Rooms/Dungeon/FightRoom.tscn")],
+				[preload("res://Rooms/Dungeon/EndRoom.tscn")],
 				"Doors/FirstDoor",
 				Walls.new(14, 12, 0),
 				8),
-	Dungeon.new([preload("res://Dungeons/Dungeon2/StartRoom2.tscn")],
-				[preload("res://Dungeons/Dungeon2/Dungeon2_FightRoom1.tscn")],
-				[preload("res://Dungeons/Dungeon2/Dungeon2_EndRoom.tscn")],
+	Dungeon.new([preload("res://Rooms/FirstFloor/StartRoom2.tscn")],
+				[preload("res://Rooms/FirstFloor/Dungeon2_FightRoom1.tscn")],
+				[preload("res://Rooms/FirstFloor/Dungeon2_EndRoom.tscn")],
 				"Doors/SecondDoor",
 				Walls.new(1, 0, 0),
 				16)
