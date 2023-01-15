@@ -2,7 +2,8 @@ extends Node2D
 
 const enemy_scenes: Dictionary = {
 	"enemy" : preload("res://Characters/Enemies/Robot/Robot.tscn"),
-	"range" : preload("res://Characters/Enemies/ShootRobot/ShootRobot.tscn")
+	"range" : preload("res://Characters/Enemies/ShootRobot/ShootRobot.tscn"),
+	"alfa" : preload("res://Characters/Enemies/AlfaShootEnemy/AlfaShootRobot.tscn")
 }
 
 
@@ -10,6 +11,7 @@ var num_enemies: int
 onready var tilemap: TileMap = get_node("TileMap3")
 onready var enemy_positions = get_node("EnemyPositions")
 onready var range_enemy_positions = get_node("RangeEnemy")
+onready var alfa_shoots_positions = get_node("AlfaShoots")
 onready var player_detector = get_node("PlayerDetector")
 onready var doors = get_node("Doors")
 onready var entrance = get_node("Entrance")
@@ -35,20 +37,34 @@ func _open_doors() -> void:
 func _close_entrance() -> void:
 	for entry_position in entrance.get_children():
 		tilemap.set_cellv(tilemap.world_to_map(entry_position.position), 0)
-	
+
+func __spawn_enemies(enemy_positions, enemy_type):
+	for enemy_position in enemy_positions.get_children():
+		var enemy = enemy_type
+		var __ = enemy.connect("tree_exited", self, "_on_enemy_killed")
+		enemy.global_position = enemy_position.position
+		call_deferred("add_child", enemy)
+
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions.get_children():
 		var enemy = enemy_scenes.enemy.instance()
 		var __ = enemy.connect("tree_exited", self, "_on_enemy_killed")
 		enemy.global_position = enemy_position.position
 		call_deferred("add_child", enemy)
+		
 	if range_enemy_positions != null:
-		for range_enemy in range_enemy_positions.get_children():
+		for enemy_position in range_enemy_positions.get_children():
 			var enemy = enemy_scenes.range.instance()
 			var __ = enemy.connect("tree_exited", self, "_on_enemy_killed")
-			enemy.global_position = range_enemy.position
+			enemy.global_position = enemy_position.position
 			call_deferred("add_child", enemy)
-		
+			
+	if alfa_shoots_positions != null:
+		for enemy_position in alfa_shoots_positions.get_children():
+			var enemy = enemy_scenes.alfa.instance()
+			var __ = enemy.connect("tree_exited", self, "_on_enemy_killed")
+			enemy.global_position = enemy_position.position
+			call_deferred("add_child", enemy)
 		
 func set_camera():
 	camera.limit_top = camera_limits.get_node("limit_left").global_position.y

@@ -1,6 +1,6 @@
 extends Navigation2D
 
-export(int) var num_levels = 2
+export(int) var num_levels = 3
 onready var player: KinematicBody2D = get_parent().get_node("Player")
 class_name Rooms
 
@@ -38,7 +38,8 @@ var dungeons = [
 				Walls.new(14, 12, 0),
 				8),
 	Dungeon.new([preload("res://Rooms/FirstFloor/StartRoom2.tscn")],
-				[preload("res://Rooms/FirstFloor/Dungeon2_FightRoom1.tscn")],
+				[preload("res://Rooms/FirstFloor/Dungeon2_FightRoom2.tscn"),
+				preload("res://Rooms/FirstFloor/Dungeon2_FightRoom1.tscn")],
 				[preload("res://Rooms/FirstFloor/Dungeon2_EndRoom.tscn")],
 				"Doors/SecondDoor",
 				Walls.new(1, 0, 0),
@@ -47,10 +48,11 @@ var dungeons = [
 var count_minigames = 1
 
 func _ready() -> void:
-	var dungeon_number = SavedData.get_next_level(len(dungeons) + count_minigames)
-	if dungeon_number == 2:
+	var dungeon_number = SavedData.get_next_level(len(dungeons) + count_minigames * 2)
+	if dungeon_number % 2 == 1:
 		_create_minigame()
 	else:
+		dungeon_number /= 2
 		var dungeon = dungeons[dungeon_number]
 		_create_rooms(dungeon_number, dungeon)
 

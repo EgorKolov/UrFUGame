@@ -48,6 +48,6 @@ z_index = 1
 [node name="PauseLayer" parent="." instance=ExtResource( 10 )]
 
 [node name="ShootRobot" parent="." instance=ExtResource( 9 )]
-position = Vector2( 255, 113 )
+position = Vector2( 330, 168 )
 
 [connection signal="hp_changed" from="Player" to="HealthBar" method="_on_Player_hp_changed"]
