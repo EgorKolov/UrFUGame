@@ -1,6 +1,6 @@
 extends Navigation2D
 
-export(int) var num_levels = 3
+export(int) var num_levels = 4
 onready var player: KinematicBody2D = get_parent().get_node("Player")
 class_name Rooms
 

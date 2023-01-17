@@ -882,7 +882,7 @@ position = Vector2( 336, 328 )
 position = Vector2( 208, 224 )
 
 [node name="Position2D2" type="Position2D" parent="EnemyPositions"]
-position = Vector2( 128, 120 )
+position = Vector2( 246, 104 )
 
 [node name="Position2D3" type="Position2D" parent="EnemyPositions"]
 position = Vector2( 392, 160 )
@@ -920,7 +920,7 @@ position = Vector2( 2357.08, 359.98 )
 scale = Vector2( 1, 1 )
 
 [node name="Light2D3" parent="light" instance=ExtResource( 6 )]
-position = Vector2( 681.801, -1199.93 )
+position = Vector2( 681.801, -1192.87 )
 scale = Vector2( 1, 1 )
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

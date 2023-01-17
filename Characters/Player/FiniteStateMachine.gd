@@ -1,6 +1,8 @@
 extends FiniteStateMachine
 
 onready var gameover: TextureProgress = get_tree().current_scene.get_node("UI/GameOver")
+onready var background: ColorRect = get_tree().current_scene.get_node("UI/Background")
+onready var healthBar: TextureProgress = get_tree().current_scene.get_node("HealthBar/HealthBar")
 
 func _init() -> void:
 	_add_state("idle")
@@ -40,4 +42,7 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("hurt")
 		states.dead:
 			animation_player.play("dead")
+			healthBar.visible = false
+			yield(get_tree().create_timer(0.5), "timeout")
+			background.visible = true
 			gameover.visible = true

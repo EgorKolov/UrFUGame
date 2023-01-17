@@ -450,7 +450,7 @@ shape = SubResource( 17 )
 [node name="RangeEnemy" type="Node2D" parent="."]
 
 [node name="RangeEnemy" type="Position2D" parent="RangeEnemy"]
-position = Vector2( 347, 81 )
+position = Vector2( 311, 60 )
 
 [node name="EnemyPositions" type="Node2D" parent="."]
 
@@ -484,7 +484,7 @@ position = Vector2( 896.081, -1446.97 )
 scale = Vector2( 1, 1 )
 
 [node name="Light2D3" parent="light" instance=ExtResource( 2 )]
-position = Vector2( 1935.02, -769.366 )
+position = Vector2( 1928.52, -748.191 )
 scale = Vector2( 1, 1 )
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

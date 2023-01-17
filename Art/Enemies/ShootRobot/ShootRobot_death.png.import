@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ShootRobot.png-2b58d95c8e329bd15fb00c8a53fb4127.stex"
+path="res://.import/ShootRobot_death.png-d611287f9a83a8ef44e4120d311113b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Enemies/ShootRobot/ShootRobot.png"
-dest_files=[ "res://.import/ShootRobot.png-2b58d95c8e329bd15fb00c8a53fb4127.stex" ]
+source_file="res://Art/Enemies/ShootRobot/ShootRobot_death.png"
+dest_files=[ "res://.import/ShootRobot_death.png-d611287f9a83a8ef44e4120d311113b4.stex" ]
 
 [params]
 

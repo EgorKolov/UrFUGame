@@ -381,9 +381,6 @@ shape = SubResource( 35 )
 
 [node name="EnemyPositions" type="Node2D" parent="."]
 
-[node name="Position2D" type="Position2D" parent="EnemyPositions"]
-position = Vector2( 331, 141 )
-
 [node name="Position2D2" type="Position2D" parent="EnemyPositions"]
 position = Vector2( 170, 64 )
 
